@@ -1,13 +1,13 @@
 package org.example.bank.account;
 
-import org.example.bank.user.User;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.bank.user.User;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @NoArgsConstructor
 @Data
@@ -34,10 +34,10 @@ public class Account {
     private Boolean status; // true, false
 
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 
     @Builder
-    public Account(Long id, User user, Integer number, String password, Long balance, Boolean status, LocalDateTime createdAt) {
+    public Account(Long id, User user, Integer number, String password, Long balance, Boolean status, Timestamp createdAt) {
         this.id = id;
         this.user = user;
         this.number = number;

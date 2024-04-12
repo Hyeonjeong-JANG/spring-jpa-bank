@@ -4,7 +4,6 @@ server:
     encoding:
       charset: utf-8
       force: true
-
 spring:
   datasource:
     url: jdbc:h2:mem:test;MODE=MySQL
@@ -14,6 +13,10 @@ spring:
   h2:
     console:
       enabled: true
+  sql:
+    init:
+      data-locations:
+        - classpath:db/data.sql
   jpa:
     open-in-view: false
     hibernate:
@@ -22,8 +25,8 @@ spring:
       '[hibernate.default_batch_fetch_size]': 100
       '[hibernate.format_sql]': true
     show-sql: true
-
+    defer-datasource-initialization: true
 logging:
   level:
     '[com.example.bank]': DEBUG
-    '[org.hibernate.orm.jdbc.bind]': TRACE # ???? ??? ?? ?? ??? ???.
+    '[org.hibernate.orm.jdbc.bind]': TRACE
